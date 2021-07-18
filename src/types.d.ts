@@ -52,9 +52,9 @@ type Horas = {
 
 type configType = {
   maxHorarios : number,
-  entreHoras : number,
   conCupo : boolean,
-  maxIterations: number
+  maxIterations: number,
+  maxDist: number
 }
 
 
