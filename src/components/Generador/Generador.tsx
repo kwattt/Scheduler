@@ -37,7 +37,7 @@ const Generador = () => {
       allCombinations.push(c)
       if(iterations === config.maxIterations)
         break
-    } 
+    }
 
     for(let combination of allCombinations) {      
       let temp : any = {}
@@ -91,6 +91,7 @@ const Generador = () => {
               allowedDist = false
               break
             }
+
             firstHour = parseInt(val)
           }
         }
