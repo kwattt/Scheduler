@@ -10,13 +10,11 @@ const SelectorMaterias = () => {
 
   const [currentAdd, setCurrentAdd] = useState<string>("")
 
-
   const updateHorarioData = () => {
 
-    if(typeof horario.centro == "undefined" || typeof horario.ciclo == "undefined")
+    if(typeof horario.centro === "undefined" || typeof horario.ciclo === "undefined" || materias.length === 0)
       return
 
-    setMaterias([])
     setCurrentAdd("")
 
     axios.post(base_url + '/getData', 
@@ -32,7 +30,6 @@ const SelectorMaterias = () => {
     }).catch(error => {
       console.log(error)
     })
-
   }
 
   return <>

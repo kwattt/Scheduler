@@ -1,5 +1,6 @@
 import DataProvider from "./context/dataContext";
 import Main from './components/Main'
+import GeneracionProvider from "./context/generacionContext";
 
 
 const App = () => {
@@ -7,7 +8,9 @@ const App = () => {
   return <>
     <DataProvider>
 
-      <Main/>
+      <GeneracionProvider>
+        <Main/>
+      </GeneracionProvider>
 
     </DataProvider>
   </>

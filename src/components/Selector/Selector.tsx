@@ -7,13 +7,13 @@ import "./Selector.css"
 const Selector = () => {
   const {setHorario, horario} = useContext(DataContext)
 
-  const setCentro = (value: Centro) => {
+  const setCentro = (value: Centro | undefined) => {
     setHorario({...horario, 
       centro: value
     })
   }
 
-  const setCiclo = (value: Ciclo) => {
+  const setCiclo = (value: Centro | undefined) => {
     setHorario({...horario, 
       ciclo: value
     })
@@ -23,6 +23,12 @@ const Selector = () => {
     <div>
       Centros
       <select>
+        <option 
+          value="" 
+          onClick={()=>{setCentro(undefined)}}>
+            Seleccionar
+          </option>
+        
         {
           horario.centros.map(centro => {
             return <option 
@@ -38,6 +44,12 @@ const Selector = () => {
     <div>
       Ciclo
       <select>
+        <option 
+          value=""
+          onClick={()=>{setCiclo(undefined)}}
+        >
+          Seleccionar
+        </option>
         {
           horario.ciclos.map(ciclo => {
             return <option 
@@ -54,12 +66,7 @@ const Selector = () => {
       <SelectorMaterias/>
     </div>
 
-    <div>
-        {horario.materias.map(materia => {
-          return <div>{materia.nombre}</div>
-        })}
 
-    </div>
   </div>
 
 }

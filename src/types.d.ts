@@ -20,20 +20,19 @@ type Centro = {
 }
 
 type Materia = {
-  activo: Boolean;
+  activo: boolean;
   clave: string;
   nombre: string;
   secciones: Array<Seccion>;
 }
 
 type Seccion = {
-  activo: Boolean;
+  activo: boolean;
   clave: string,
   creditos: number,
   cupos: number,
   disponibles: number,
   horas: Array<Horas>,
-
   nombre: string, 
   nrc: string,
   profesor: string,
@@ -44,12 +43,19 @@ type Horas = {
   aula: string,
   dias: Array<diaSemana>
   edificio: string,
-  entrada: string,
-  salida: string,
   periodo: string,
   sesion: string,
-  inicio: Date;
-  final: Date;
+  entrada: number,
+  salida: number,
+  final: string;
 }
+
+type configType = {
+  maxHorarios : number,
+  entreHoras : number,
+  conCupo : boolean,
+  maxIterations: number
+}
+
 
 type diaSemana = 'Lunes' | 'Martes' | 'Miercoles' | 'Jueves' | 'Viernes' | 'Sabado';

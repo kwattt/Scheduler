@@ -18,7 +18,7 @@ const DataProvider : FC = ({children}) => {
   const [horario, setData] = useState<Horario>(defaultContext.horario)
 
   useEffect(() => {
-    let _mounted = true
+    let _mounted = true 
 
     const fetchData = async() => {
       axios.get(base_url + "/getInfo").then((data) => {
@@ -35,7 +35,7 @@ const DataProvider : FC = ({children}) => {
         if(_mounted){
           console.log(err)
         }
-     })
+      })
     }
     fetchData()
 

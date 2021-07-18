@@ -67,8 +67,10 @@ def parseHTML(html):
             horarios.append(
                 {
                     'sesion': sesion, 
-                    'entrada': horas[0], 
-                    'salida': horas[1], 
+                    'entrada': 
+                        round(float(horas[0][:2] + '.' + horas[0][2:])), 
+                    'salida': 
+                        round(float(horas[1][:2] + '.' + horas[1][2:])), 
                     'dias': semana, 
                     'edificio': edificio, 
                     'aula': aula, 
@@ -79,14 +81,14 @@ def parseHTML(html):
         profesor = info[8].findChildren('td')[1].getText()
 
         data.append({
-            'activo': 1,
+            'activo': True,
             'nrc' : nrc,
             'clave' : clave, 
             'nombre' : nombre, 
             'seccion' : seccion,
-            'creditos' : creditos,
-            'cupos' : cupos,
-            'disponibles': disponibles,
+            'creditos' : int(creditos),
+            'cupos' : int(cupos),
+            'disponibles': int(disponibles),
             'profesor': profesor,
             'horas': horarios,
         })
@@ -123,7 +125,7 @@ async def get_bulk_data(info):
         res = parseHTML(data)
         if res:
             results.append({
-                'activo': 1,
+                'activo': True,
                 'clave': res[0]['clave'],
                 'nombre': res[0]['nombre'],
                 'secciones': res
@@ -166,7 +168,6 @@ async def getData():
     data = await request.get_json()
     info = data['info']
     res = await get_bulk_data(info)
-    print(res)
     return jsonify(res)
 
 if __name__ == "__main__":
