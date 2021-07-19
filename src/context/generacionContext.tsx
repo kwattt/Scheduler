@@ -6,14 +6,14 @@ type generacionType = {
   setOpciones : any,
   setSelected: any,
   opciones: any,
-  selected: any
+  selected: any,
 }
 
 const defaultContext : generacionType = {
   setOpciones: (newData : any) => {},
   opciones: [],
   setSelected: (sel : any) => {},
-  selected: {}
+  selected: {},
 }
 
 export const GeneracionContext = createContext(defaultContext)
@@ -40,7 +40,7 @@ const OpcionesProvider : FC = ({children}) => {
       setOpciones,
       setSelected,
       opciones,
-      selected
+      selected,
     }}
   >
     {children}

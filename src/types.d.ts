@@ -1,6 +1,7 @@
 type HorarioContext = {
   setHorario: (newData: Horario) => void,
-  horario: Horario
+  horario: Horario,
+  nrcInfo : any
 } 
 
 interface Horario {

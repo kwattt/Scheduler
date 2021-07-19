@@ -43,22 +43,35 @@ const Generador = () => {
       let temp : any = {}
       let materias_inc : string[] = []
 
+
       for(let sec of combination){
-        for(let dia of sec.horas){
+        if(materias_inc.includes(sec.clave))
+          continue
+
+        for(let dia of sec.horas){ 
+          let all_free = true
           for(let weekday of dia.dias){
             if(!temp.hasOwnProperty(weekday)){
               temp[weekday] = {}
             }
             for(let i = dia.entrada; i < dia.salida; i++){
-              if(!temp[weekday].hasOwnProperty(i)){
-                temp[weekday][i] = sec.nrc
-                if(!materias_inc.includes(sec.clave))
-                  materias_inc.push(sec.clave)
-              }
-              else 
-                break
+              if(temp[weekday].hasOwnProperty(i))
+                all_free = false 
             }
           }
+
+          if(all_free){
+            for(let weekday of dia.dias){
+              for(let i = dia.entrada; i < dia.salida; i++){
+                if(!temp[weekday].hasOwnProperty(i)){
+                  temp[weekday][i] = sec.nrc
+                  if(!materias_inc.includes(sec.clave))
+                    materias_inc.push(sec.clave)
+                }
+              }
+            }
+          }
+
         }
       }
 
@@ -103,7 +116,6 @@ const Generador = () => {
 
     }
 
-    console.log(posibles)
     setOpciones(posibles)
     if(posibles.length > 0)
       setSelected(posibles[0])

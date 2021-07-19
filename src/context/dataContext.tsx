@@ -9,13 +9,16 @@ const defaultContext : HorarioContext = {
     centros: [],
     materias: [],
     ciclos: []
-  }
+  },
+  nrcInfo: {}
 }
+const randColor = () => {return Math.floor(Math.random()*16777215).toString(16)}
 
 export const DataContext = createContext(defaultContext)
 
 const DataProvider : FC = ({children}) => {
   const [horario, setData] = useState<Horario>(defaultContext.horario)
+  const [nrcInfo, setNrcInfo] = useState<any>({})
 
   useEffect(() => {
     let _mounted = true 
@@ -46,12 +49,27 @@ const DataProvider : FC = ({children}) => {
 
   const setHorario = (newData : Horario) => {
     setData(newData)
+
+    if(newData.materias.length > 0){
+      for(let materia of newData.materias){
+        let matColor = randColor()
+        for(let seccion of materia.secciones){
+          nrcInfo[seccion.nrc] = {
+            "clave": seccion.clave,
+            "nombre": seccion.nombre,
+            "color": '#' +matColor,
+          }
+        }
+      }  
+    }
+
   }
 
   return <DataContext.Provider  
     value={{
       setHorario,
-      horario
+      horario,
+      nrcInfo
     }}
   >
     {children}

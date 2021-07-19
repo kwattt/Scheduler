@@ -1,10 +1,13 @@
 import { useContext } from "react"
 import { GeneracionContext } from "../../context/generacionContext"
+import MatSelector from './MatSelector'
 
 import './Grid.css'
+import { DataContext } from "../../context/dataContext"
 
 const Grid = () => {
-  const {selected, setSelected, opciones} = useContext(GeneracionContext)
+  const {selected} = useContext(GeneracionContext)
+  const {nrcInfo} = useContext(DataContext)
 
   var grid : any = {
     "Horas": {},
@@ -19,7 +22,7 @@ const Grid = () => {
   const selectedToGrid = () => {
     for(let key in grid){
       for(let i = 5; i <= 23; i++)
-          grid[key][i] = "-"
+          grid[key][i] = "_"
     }
     if(typeof selected !== "undefined"){
       for(let key in selected){
@@ -31,9 +34,13 @@ const Grid = () => {
   }
   selectedToGrid()
 
-  return <div
+  return <>
+  <MatSelector/>
+
+  <div
     id="grid"
   >
+
     {Object.keys(grid).map(v => {
       return <div className="grid-day">
         {v}
@@ -43,7 +50,15 @@ const Grid = () => {
         >
           
           {v !== "Horas" ? Object.keys(grid[v]).map(v2 => {
-            return <div>{grid[v][v2]}</div>
+            if(grid[v][v2] === "_")
+              return <div>-</div>
+            return <div
+              style={{
+                backgroundColor: nrcInfo[grid[v][v2]]['color']
+              }}
+            >
+              {grid[v][v2]}
+            </div>
             })
             :
             Object.keys(grid[v]).map(v2 => {
@@ -56,6 +71,7 @@ const Grid = () => {
       </div>
     })}
   </div>
+  </>
 }
 
 export default Grid

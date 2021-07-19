@@ -1,0 +1,16 @@
+#selector select {
+  background-color: transparent;
+  border: 0;
+}
+
+#selector select option {
+  display:inline-block;
+  padding-inline: 10px;
+}
+
+#selector {
+  display:inline-block;
+  vertical-align:top;
+  max-width: 90vw;
+  overflow: scroll;
+}
