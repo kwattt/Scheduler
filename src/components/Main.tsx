@@ -6,6 +6,8 @@ import Grid from './Grid/Grid';
 import './Main.css'
 import './Nav.css'
 
+import githubLogo from './../static/github-icon.svg'
+
 const Main = () => {
   return <div id="main">
 
@@ -18,6 +20,10 @@ const Main = () => {
       <Info/>
       <Generador/>
       <Grid/>
+    </div>
+
+    <div id="footer">
+      <p>Source code <a href="https://github.com/kwattt/Scheduler"><img src={githubLogo} height="20px"/>Github</a></p>
     </div>
 
   </div>

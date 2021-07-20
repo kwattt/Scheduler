@@ -51,3 +51,13 @@ select {
   background-color: transparent;
   border: 0;
 }
+
+#footer {
+  padding-block: 1em;
+  font-size: 0.6em;
+  text-align: center;
+}
+
+#footer img {
+  padding-right: 1em;
+}
