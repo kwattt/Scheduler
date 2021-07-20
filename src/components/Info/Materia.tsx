@@ -18,10 +18,9 @@ const Materia = ({materia, index} : MateriaType) => {
       materias: tempMaterias
     })
   }
- 
-  return <>
+
+  return <div className="materia-info">
       <h3
-        className="materia-title"
         onClick={()=>{setVisible(!visible)}}
       >
         {materia.nombre}
@@ -84,7 +83,7 @@ const Materia = ({materia, index} : MateriaType) => {
         </tbody>
       </table>
     }
-  </>
+  </div>
 }
 
 export default Materia

@@ -42,9 +42,8 @@ const Grid = () => {
   >
 
     {Object.keys(grid).map(v => {
-      return <div className="grid-day">
+      return <div key={'grid'+v} className="grid-day">
         {v}
-
         <div
           className="grid-day-content"  
         >
@@ -54,7 +53,7 @@ const Grid = () => {
               return <div>-</div>
             return <div
               style={{
-                backgroundColor: nrcInfo[grid[v][v2]]['color']
+                backgroundColor: nrcInfo[grid[v][v2]]['color'] + 'A0'
               }}
             >
               {grid[v][v2]}

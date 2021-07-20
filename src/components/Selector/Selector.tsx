@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { DataContext } from "../../context/dataContext"
 import SelectorMaterias from "./SelectorMaterias"
-
 import "./Selector.css"
 
 const Selector = () => {
@@ -19,16 +18,16 @@ const Selector = () => {
     })
   }
 
-  return <div id="Selector">
-    <div>
-      Centros
+  return <div id="selector-mat">
+    <div id="selector-centros">
+      <p><b>Centros</b></p>
       <select>
         <option 
-          value="" 
-          onClick={()=>{setCentro(undefined)}}>
-            Seleccionar
-          </option>
-        
+          value=""
+          onClick={()=>{setCentro(undefined)}}
+        >
+          Seleccionar
+        </option>
         {
           horario.centros.map(centro => {
             return <option 
@@ -41,8 +40,8 @@ const Selector = () => {
         }
       </select>
     </div>  
-    <div>
-      Ciclo
+    <div id="selector-ciclos">
+      <p><b>Ciclos</b></p>
       <select>
         <option 
           value=""
@@ -62,10 +61,7 @@ const Selector = () => {
         }
       </select>
     </div>  
-    <div id="selector-materias">
-      <SelectorMaterias/>
-    </div>
-
+    <SelectorMaterias/>
 
   </div>
 

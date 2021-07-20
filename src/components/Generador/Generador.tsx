@@ -13,7 +13,7 @@ const Generador = () => {
     maxHorarios: 100,
     conCupo: false,
     maxIterations: 1000000,
-    maxDist: 1
+    maxDist: 2
   })
 
   const generador = () => {
@@ -39,6 +39,8 @@ const Generador = () => {
         break
     }
 
+
+    let horario_count = 0
     for(let combination of allCombinations) {      
       let temp : any = {}
       let materias_inc : string[] = []
@@ -112,6 +114,9 @@ const Generador = () => {
 
       if(allowedDist && allMaterias){
         posibles.push(temp)
+        horario_count++
+        if(horario_count >= config.maxHorarios)
+          break
       }
 
     }

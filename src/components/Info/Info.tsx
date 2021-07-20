@@ -5,24 +5,20 @@ import Materia from "./Materia"
 import './Info.css'
 
 const Info = () => {
-  const {setHorario, horario} = useContext(DataContext)
+  const {horario} = useContext(DataContext)
 
-  return <>
-    <div
-      className="materias-contenedor"
+  return <div
+      id="materias-contenedor"
     >
-        {horario.materias.map((materia, k) => {
-          return <div
-            className="materia-title"
-            key={"mat" + k.toString()}
-          >
-            <Materia materia={materia} index={k}/>
-          </div>
-        })}
+      {horario.materias.map((materia, k) => {
+        return <div 
+          key={"mat" + k.toString()}>
+          <Materia materia={materia} index={k}/>
+        </div>
+      })}
 
-    </div>
-  </>
+  </div>
 
-}
+} 
 
 export default Info

@@ -32,15 +32,39 @@ const SelectorMaterias = () => {
     })
   }
 
-  return <>
+  return <div id="selector-materias">
 
+    <p><b>Nueva materia</b></p> 
+
+    <input 
+      className="materia-input"
+      type="text" 
+      placeholder="Clave de la materia"
+      maxLength={10}
+      value={currentAdd}
+      onChange={(e)=>{setCurrentAdd(e.target.value)}}
+    /> 
+
+    <br/>
+    <button 
+      children="Añadir"
+      onClick={()=>{
+        setMaterias([...materias, currentAdd])
+        setCurrentAdd("")
+      }}
+    />
+    <br/>
+
+    <div
+      id="materias-container"
+    >
     {
       materias.map((materia, k) => {
         return <div 
           key={k}
           className="materia-search"
         >
-          <button children={materia}/>
+          <button children={materia} disabled/>
           <button children="x"
             onClick={()=>{
               setMaterias(materias.filter(e => e !== materia))
@@ -49,23 +73,7 @@ const SelectorMaterias = () => {
         </div>
       })
     }
-
-    Nueva materia: <input 
-      className="materia-input"
-      type="text" 
-      placeholder="materia"
-      maxLength={10}
-      value={currentAdd}
-      onChange={(e)=>{setCurrentAdd(e.target.value)}}
-    /> 
-
-    <button 
-      children="Añadir"
-      onClick={()=>{
-        setMaterias([...materias, currentAdd])
-        setCurrentAdd("")
-      }}
-    />
+    </div>
 
     <div 
       id="query-materias"
@@ -77,7 +85,7 @@ const SelectorMaterias = () => {
         children="Buscar"
       />
     </div>
-  </>
+  </div>
 
 }
 

@@ -1,0 +1,32 @@
+#selector-mat {
+  padding-block: 0.4em;
+  background-color: rgba(117, 142, 182, 0.25);
+  padding-left: 2.0%;
+}
+
+#selector-mat b,p {
+  margin: 0;
+}
+
+#selector-mat select {
+  margin-top: 0.2em;
+  background-color: rgba(117, 142, 182, 0.25);
+  border: solid 1px black;
+  margin-top: 0.4em
+}
+
+
+#selector-ciclos {
+  margin-top: 0.3em;
+}
+
+.materia-search {
+  display: inline-block;
+  margin-right: 0.3em;
+}
+
+#materias-container {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
