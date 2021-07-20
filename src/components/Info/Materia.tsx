@@ -44,7 +44,7 @@ const Materia = ({materia, index} : MateriaType) => {
         <tbody>
         {materia.secciones.map((seccion, k) => {
           return <tr
-            key={seccion.nrc}
+            key={"sect"+seccion.nrc}
           >
             <td>{seccion.nrc}</td>
             <td>{seccion.seccion}</td>

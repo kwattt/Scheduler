@@ -1,5 +1,6 @@
 import axios from "axios";
-import {createContext, useState, useEffect, FC} from "react";
+import {createContext, useState, useEffect, FC, useContext} from "react";
+import { GeneracionContext } from "./generacionContext";
 
 const base_url = process.env.REACT_APP_BASE_URL
 
@@ -19,6 +20,7 @@ export const DataContext = createContext(defaultContext)
 const DataProvider : FC = ({children}) => {
   const [horario, setData] = useState<Horario>(defaultContext.horario)
   const [nrcInfo, setNrcInfo] = useState<any>({})
+  const {setSelected} = useContext(GeneracionContext)
 
   useEffect(() => {
     let _mounted = true 
@@ -50,17 +52,22 @@ const DataProvider : FC = ({children}) => {
   const setHorario = (newData : Horario) => {
     setData(newData)
 
+    let temp:any = {}
     if(newData.materias.length > 0){
       for(let materia of newData.materias){
         let matColor = randColor()
         for(let seccion of materia.secciones){
-          nrcInfo[seccion.nrc] = {
+          temp[seccion.nrc] = {
             "clave": seccion.clave,
             "nombre": seccion.nombre,
+            "profesor": seccion.profesor,
             "color": '#' +matColor,
           }
         }
-      }  
+      }
+      setSelected(undefined)
+
+      setNrcInfo(temp)
     }
 
   }

@@ -42,16 +42,24 @@ const Grid = () => {
   >
 
     {Object.keys(grid).map(v => {
-      return <div key={'grid'+v} className="grid-day">
+      return <div 
+        key={'gridv'+v} 
+        className="grid-day"
+      >
         {v}
         <div
           className="grid-day-content"  
         >
           
-          {v !== "Horas" ? Object.keys(grid[v]).map(v2 => {
+          {v !== "Horas" ? Object.keys(grid[v]).map((v2, k) => {
             if(grid[v][v2] === "_")
-              return <div>-</div>
+              return <div
+              key={"hour"+k}
+            >
+              -
+            </div>
             return <div
+              key={"hour"+k}
               style={{
                 backgroundColor: nrcInfo[grid[v][v2]]['color'] + 'A0'
               }}
@@ -61,7 +69,9 @@ const Grid = () => {
             })
             :
             Object.keys(grid[v]).map(v2 => {
-              return <div>{v2}:00</div>
+              return <div
+                key={"time"+v2}
+              >{v2}:00</div>
               })
           }
 
