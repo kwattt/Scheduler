@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/Scheduler/static/css/main.e1c0f55c.chunk.css",
-    "main.js": "/Scheduler/static/js/main.bcbeb8ae.chunk.js",
-    "main.js.map": "/Scheduler/static/js/main.bcbeb8ae.chunk.js.map",
+    "main.css": "/Scheduler/static/css/main.1df09ed2.chunk.css",
+    "main.js": "/Scheduler/static/js/main.fa09478a.chunk.js",
+    "main.js.map": "/Scheduler/static/js/main.fa09478a.chunk.js.map",
     "runtime-main.js": "/Scheduler/static/js/runtime-main.dffc9704.js",
     "runtime-main.js.map": "/Scheduler/static/js/runtime-main.dffc9704.js.map",
     "static/js/2.97021992.chunk.js": "/Scheduler/static/js/2.97021992.chunk.js",
     "static/js/2.97021992.chunk.js.map": "/Scheduler/static/js/2.97021992.chunk.js.map",
     "index.html": "/Scheduler/index.html",
-    "static/css/main.e1c0f55c.chunk.css.map": "/Scheduler/static/css/main.e1c0f55c.chunk.css.map",
+    "static/css/main.1df09ed2.chunk.css.map": "/Scheduler/static/css/main.1df09ed2.chunk.css.map",
     "static/js/2.97021992.chunk.js.LICENSE.txt": "/Scheduler/static/js/2.97021992.chunk.js.LICENSE.txt",
-    "static/media/Main.css": "/Scheduler/static/media/RobotoMono-VariableFont_wght.2ccde177.ttf"
+    "static/media/Main.css": "/Scheduler/static/media/RobotoMono-VariableFont_wght.2ccde177.ttf",
+    "static/media/github-icon.04ed74f3.svg": "/Scheduler/static/media/github-icon.04ed74f3.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.dffc9704.js",
     "static/js/2.97021992.chunk.js",
-    "static/css/main.e1c0f55c.chunk.css",
-    "static/js/main.bcbeb8ae.chunk.js"
+    "static/css/main.1df09ed2.chunk.css",
+    "static/js/main.fa09478a.chunk.js"
   ]
 }
