@@ -34,7 +34,7 @@ const SelectorMaterias = () => {
 
   return <div id="selector-materias">
 
-    <p><b>Nueva materia</b></p> 
+    <label><b>Nueva materia</b></label><br/>
 
     <input 
       className="materia-input"

@@ -34,7 +34,7 @@ button {
   box-shadow: 0.1em 0.12em rgba(35, 43, 56, 0.55);
 }
 
-select, p, b, input, button {
+select, p, b, input, button, label {
   font-size: 1.1em;
 }
 

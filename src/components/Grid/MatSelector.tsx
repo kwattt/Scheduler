@@ -27,12 +27,15 @@ const MatSelector = () => {
     setCvalue(index)
   } 
 
-  return <>
+  return <div 
+  id="selector-outer"
+  style={{
+    visibility: opciones.length>0 ? 'visible' : 'hidden'
+  }}
+  >
+    <label><b>Generados</b></label><br/>
     <div
       id="selector"
-      style={{
-        visibility: opciones.length>0 ? 'visible' : 'hidden'
-      }}
     >
       <button
         className="btn-move"
@@ -43,7 +46,9 @@ const MatSelector = () => {
       
       <ul>
         {opciones.map((v:any, k:number) => {
-          return <li>
+          return <li
+            key={"stid"+k}
+          >
             <input
               type="radio" 
               key={'sopt'+k} 
@@ -68,7 +73,7 @@ const MatSelector = () => {
       </button>
 
     </div>
-  </>
+  </div>
 }
 
 export default MatSelector

@@ -4,10 +4,16 @@ import MatSelector from './MatSelector'
 
 import './Grid.css'
 import { DataContext } from "../../context/dataContext"
+import { useState } from "react"
 
 const Grid = () => {
   const {selected} = useContext(GeneracionContext)
   const {nrcInfo} = useContext(DataContext)
+
+  const [showType, setShowType] = useState(false)
+  
+
+  var active_nrc : any = []
 
   var grid : any = {
     "Horas": {},
@@ -28,19 +34,45 @@ const Grid = () => {
       for(let key in selected){
         for(let val in selected[key]){
           grid[key][val] = selected[key][val]
+          if(!active_nrc.includes(selected[key][val]))
+            active_nrc.push(selected[key][val])
         }
       }
     }
   }
   selectedToGrid()
 
-  return <>
-  <MatSelector/>
+  return <div id="grid-info">
+    <MatSelector/>
 
+    {selected !== "undefined" && 
+    <div id="changeType">
+      <div>
+        {active_nrc.map((v:any) => {
+          return <div
+            key={"info"+v}
+            className="nrc-info"
+            style={{
+              backgroundColor: nrcInfo[v]['color'] + '65'
+            }}
+          > 
+            <b>{v}</b> {nrcInfo[v]['nombre']} {nrcInfo[v]['profesor']}
+          </div>
+        })}
+      </div>
+      <div>
+        <label>Mostrar: </label> 
+        <button
+          children={showType ? 'Iniciales' : 'NRC'}
+          onClick={()=>{setShowType(!showType)}}
+        />
+      </div>
+    </div>
+    }
+  
   <div
     id="grid"
   >
-
     {Object.keys(grid).map(v => {
       return <div 
         key={'gridv'+v} 
@@ -64,7 +96,9 @@ const Grid = () => {
                 backgroundColor: nrcInfo[grid[v][v2]]['color'] + 'A0'
               }}
             >
-              {grid[v][v2]}
+              {showType === false ? 
+                grid[v][v2] : 
+                nrcInfo[grid[v][v2]]['nombre'].split(' ').map((v:any) => {return v[0]+' '})}
             </div>
             })
             :
@@ -79,8 +113,8 @@ const Grid = () => {
 
       </div>
     })}
+    </div>
   </div>
-  </>
 }
 
 export default Grid

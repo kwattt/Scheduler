@@ -20,7 +20,7 @@ const Selector = () => {
 
   return <div id="selector-mat">
     <div id="selector-centros">
-      <p><b>Centros</b></p>
+      <label><b>Centros</b></label><br/>
       <select>
         <option 
           value=""
@@ -41,7 +41,7 @@ const Selector = () => {
       </select>
     </div>  
     <div id="selector-ciclos">
-      <p><b>Ciclos</b></p>
+      <label><b>Ciclos</b></label><br/>
       <select>
         <option 
           value=""

@@ -33,6 +33,13 @@ const Generador = () => {
         secciones.push(materia.secciones.filter(m => (m.activo === true && m.disponibles > 0)))
     }
 
+    if(horario.materias.length === 0)
+    {
+      setOpciones([])
+      setSelected(undefined)
+      return
+    }
+
     let allCombinations : Array<Seccion[]> = [] 
     for (let c of cartesian(...secciones)) {
       iterations++;
@@ -46,7 +53,6 @@ const Generador = () => {
     for(let combination of allCombinations) {      
       let temp : any = {}
       let materias_inc : string[] = []
-
 
       for(let sec of combination){
         if(materias_inc.includes(sec.clave))
