@@ -13,6 +13,7 @@ const Selector = () => {
       target = horario.centros[value]
     }
 
+
     setHorario({...horario, 
       centro: target
     })
@@ -45,7 +46,7 @@ const Selector = () => {
           horario.centros.map((centro, id) => {
             return <option 
               key={centro.id}
-              onClick={()=>{setCentro(id)}}
+              value={id}
               >
                 {centro.nombre}
               </option>

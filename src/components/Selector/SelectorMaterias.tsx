@@ -17,6 +17,8 @@ const SelectorMaterias = () => {
     if(typeof horario.centro === "undefined" || typeof horario.ciclo === "undefined" || materias.length === 0)
       return
 
+
+
     setCurrentAdd("")
     setSelected(undefined)
     setOpciones([])
