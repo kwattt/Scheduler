@@ -5,14 +5,14 @@ import { GeneracionContext } from "../../context/generacionContext"
 import './MatSelector.css'
 
 const MatSelector = () => {
-  const {opciones, setSelected} = useContext(GeneracionContext)
+  const {opciones, setSelected, selected} = useContext(GeneracionContext)
   const [cvalue, setCvalue] = useState(0)
 
   useEffect(()=>{
-    if(opciones.length>0){
+    if(opciones.length>0 && selected !== opciones[cvalue]){
       setSelected(opciones[cvalue])
     }
-  }, [cvalue])
+  }, [cvalue, opciones, setSelected, selected])
 
   const btnMove = (val : number) => {
     if(cvalue+val<0)

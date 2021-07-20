@@ -165,9 +165,12 @@ async def getInfo():
 
 @app.route('/getData', methods=['POST'])
 async def getData():
-    data = await request.get_json()
-    info = data['info']
-    res = await get_bulk_data(info)
+    try:
+        data = await request.get_json()
+        info = data['info']
+        res = await get_bulk_data(info)
+    except Exception:
+        return 'bad data', 400    
     return jsonify(res)
 
 if __name__ == "__main__":
