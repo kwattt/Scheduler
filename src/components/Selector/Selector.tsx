@@ -6,33 +6,46 @@ import "./Selector.css"
 const Selector = () => {
   const {setHorario, horario} = useContext(DataContext)
 
-  const setCentro = (value: Centro | undefined) => {
+  const setCentro = (value: number | undefined) => {
+    let target : Centro | undefined = undefined
+    
+    if(value !== -1 && typeof value !== 'undefined'){
+      target = horario.centros[value]
+    }
+
     setHorario({...horario, 
-      centro: value
+      centro: target
     })
   }
 
-  const setCiclo = (value: Centro | undefined) => {
+  const setCiclo = (value: number | undefined) => {
+    let target : Ciclo | undefined = undefined
+    
+    if(value !== -1 && typeof value !== 'undefined'){
+      target = horario.ciclos[value]
+    }
+
     setHorario({...horario, 
-      ciclo: value
+      ciclo: target
     })
   }
 
   return <div id="selector-mat">
     <div id="selector-centros">
       <label><b>Centros</b></label><br/>
-      <select>
+      <select
+        onChange={(v) => {setCentro(parseInt(v.target.value))}}
+      >
         <option 
-          value=""
-          onClick={()=>{setCentro(undefined)}}
+          value={-1}
         >
           Seleccionar
         </option>
         {
-          horario.centros.map(centro => {
+          horario.centros.map((centro, id) => {
             return <option 
               key={centro.id}
-              onClick={()=>{setCentro(centro)}}
+              onClick={()=>{setCentro(id)}}
               >
                 {centro.nombre}
               </option>
@@ -42,18 +55,19 @@ const Selector = () => {
     </div>  
     <div id="selector-ciclos">
       <label><b>Ciclos</b></label><br/>
-      <select>
+      <select
+        onChange={(v) => {setCiclo(parseInt(v.target.value))}}
+      >
         <option 
-          value=""
-          onClick={()=>{setCiclo(undefined)}}
+          value={-1}
         >
           Seleccionar
         </option>
         {
-          horario.ciclos.map(ciclo => {
+          horario.ciclos.map((ciclo, id) => {
             return <option 
               key={ciclo.id}
-              onClick={()=>{setCiclo(ciclo)}}
+              value={id}
               >
                 {ciclo.nombre}
               </option>

@@ -15,25 +15,9 @@
   padding-left: 2.0%;
 }
 
-.btn-inactive button:hover {
-  background-color: rgb(151, 102, 102); 
-}
-
-.btn-inactive button {
-  font-size: 0.9em;
-  box-shadow: 0.1em 0.12em rgba(35, 43, 56, 0.55);
-  background-color: rgb(197, 132, 132);
-}
-
-
-.btn-active button:hover {
-  background-color: rgb(102, 151, 108); 
-}
-
-.btn-active button {
-  font-size: 0.9em;
-  box-shadow: 0.1em 0.12em rgba(35, 43, 56, 0.55);
-  background-color: rgb(132, 197, 141);
+.sect-activo {
+  width: 1em;
+  height: 1em;
 }
 
 .materia-table-container {

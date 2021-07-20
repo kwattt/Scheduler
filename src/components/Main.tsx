@@ -23,7 +23,7 @@ const Main = () => {
     </div>
 
     <div id="footer">
-      <p>Source code <a href="https://github.com/kwattt/Scheduler"><img alt="github mark" src={githubLogo} height="20px"/>Github</a></p>
+      <p>Source code <a href="https://github.com/kwattt/Scheduler"><img alt="github markz" src={githubLogo} height="20px"/>Github</a></p>
     </div>
 
   </div>

@@ -76,10 +76,12 @@ const Materia = ({materia, index} : MateriaType) => {
             <td
                 className={seccion.activo ? "btn-active" : "btn-inactive"}
               >
-              <button
-                children={seccion.activo ? "SI" : "NO"}
+              <input
+                className="sect-activo"
+                type="checkbox"
+                defaultChecked={seccion.activo}
                 value={+seccion.activo} 
-                onClick={() => {toggleNrc(k)}}
+                onChange={() => {toggleNrc(k)}}
               />
             </td>
           </tr>
