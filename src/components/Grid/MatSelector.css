@@ -1,7 +1,4 @@
-#selector select {
-  background-color: transparent;
-  border: 0;
-}
+
 
 #selector select option {
   display:inline-block;

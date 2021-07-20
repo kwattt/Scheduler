@@ -5,6 +5,8 @@ import Opciones from "./Opciones"
 
 import {cartesian} from './cartesian'
 
+import './Generador.css'
+
 const Generador = () => {
   const {horario} = useContext(DataContext)
   const {setOpciones, setSelected} = useContext(GeneracionContext)

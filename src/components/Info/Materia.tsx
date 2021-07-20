@@ -13,7 +13,6 @@ const Materia = ({materia, index} : MateriaType) => {
   const toggleNrc = (nrcIndex : number) => {
     var tempMaterias = horario.materias
     tempMaterias[index].secciones[nrcIndex].activo = !tempMaterias[index].secciones[nrcIndex].activo
-    
     setHorario({...horario, 
       materias: tempMaterias
     })
@@ -25,8 +24,10 @@ const Materia = ({materia, index} : MateriaType) => {
       >
         {materia.nombre}
       </h3>
+
     {materia.activo === true && visible &&
-      <table className="NRCS">
+    <div className="materia-table-container">
+    <table className="NRCS">
         <thead>
           <tr>
             <td>NRC</td>
@@ -49,9 +50,10 @@ const Materia = ({materia, index} : MateriaType) => {
             <td>{seccion.seccion}</td>
             <td>{seccion.profesor}</td>
             
-            <td>
-              <table
+            <td
                 className="seccion-horario"
+              >
+              <table
               >
                 <tbody>
                 {seccion.horas.map((hora, k) => {
@@ -67,22 +69,26 @@ const Materia = ({materia, index} : MateriaType) => {
               </table>
 
             </td>
-            
+
             <td>{seccion.cupos}</td>
             <td>{seccion.disponibles}</td>
             <td>{seccion.creditos}</td>
-            <td>
-              <input 
-                type="checkbox" 
+            <td
+                className={seccion.activo ? "btn-active" : "btn-inactive"}
+              >
+              <button
+                children={seccion.activo ? "SI" : "NO"}
                 value={+seccion.activo} 
-                checked={seccion.activo}
-                onChange={(v) => {toggleNrc(k)}}
-                /></td>
+                onClick={() => {toggleNrc(k)}}
+              />
+            </td>
           </tr>
         })}
         </tbody>
       </table>
+      </div>
     }
+
   </div>
 }
 

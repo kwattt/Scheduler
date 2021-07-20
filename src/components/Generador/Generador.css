@@ -1,0 +1,27 @@
+#generador {
+  background-color: rgba(153, 117, 182, 0.25);
+  padding-left: 2%;
+  padding-block: 0.35em;
+}
+
+#opciones  h4{
+  margin: 0;
+  padding: 0;
+}
+
+#opciones input {
+  max-width: 5.5em;
+}
+
+#opciones button {
+  font-size: 0.8em;
+}
+
+#opciones {
+  overflow-x: scroll;
+}
+
+.opciones-config {
+  display: inline-block;
+  padding-left: 0.5em;
+}

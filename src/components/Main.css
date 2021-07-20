@@ -46,3 +46,8 @@ input {
   background-color: rgba(248, 248, 248, 0.87);
   border: solid 1px black;
 }
+
+select {
+  background-color: transparent;
+  border: 0;
+}
