@@ -1,12 +1,14 @@
 import axios from "axios"
 import { useContext, useState } from "react"
 import { DataContext } from "../../context/dataContext"
+import { GeneracionContext } from "../../context/generacionContext"
 
 const base_url = process.env.REACT_APP_BASE_URL
 
 const SelectorMaterias = () => {
   const {setHorario, horario} = useContext(DataContext)
   const [materias, setMaterias] = useState<String[]>([])
+  const {setSelected, setOpciones} = useContext(GeneracionContext)
 
   const [currentAdd, setCurrentAdd] = useState<string>("")
 
@@ -16,6 +18,8 @@ const SelectorMaterias = () => {
       return
 
     setCurrentAdd("")
+    setSelected(undefined)
+    setOpciones([])
 
     axios.post(base_url + '/getData', 
       {

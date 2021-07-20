@@ -43,33 +43,9 @@ const Grid = () => {
   selectedToGrid()
 
   return <div id="grid-info">
-    <MatSelector/>
 
-    {selected !== "undefined" && 
-    <div id="changeType">
-      <div>
-        {active_nrc.map((v:any) => {
-          return <div
-            key={"info"+v}
-            className="nrc-info"
-            style={{
-              backgroundColor: nrcInfo[v]['color'] + '65'
-            }}
-          > 
-            <b>{v}</b> {nrcInfo[v]['nombre']} {nrcInfo[v]['profesor']}
-          </div>
-        })}
-      </div>
-      <div>
-        <label>Mostrar: </label> 
-        <button
-          children={showType ? 'Iniciales' : 'NRC'}
-          onClick={()=>{setShowType(!showType)}}
-        />
-      </div>
-    </div>
-    }
-  
+  <MatSelector/>
+
   <div
     id="grid"
   >
@@ -98,7 +74,7 @@ const Grid = () => {
             >
               {showType === false ? 
                 grid[v][v2] : 
-                nrcInfo[grid[v][v2]]['nombre'].split(' ').map((v:any) => {return v[0]+' '})}
+                nrcInfo[grid[v][v2]]['nombre'].split(' ').map((v:any) => {return v[0]})}
             </div>
             })
             :
@@ -108,12 +84,36 @@ const Grid = () => {
               >{v2}:00</div>
               })
           }
-
         </div>
-
       </div>
     })}
+
     </div>
+
+    {selected !== "undefined" && 
+    <div id="changeType">
+      <div>
+        {active_nrc.map((v:any) => {
+          return <div
+            key={"info"+v}
+            className="nrc-info"
+            style={{
+              backgroundColor: nrcInfo[v]['color'] + '65'
+            }}
+          > 
+            <b>{v}</b> {nrcInfo[v]['nombre']} {nrcInfo[v]['profesor']}
+          </div>
+        })}
+      </div>
+      <div>
+        <label>Mostrar: </label> 
+        <button
+          children={showType ? 'Iniciales' : 'NRC'}
+          onClick={()=>{setShowType(!showType)}}
+        />
+      </div>
+    </div>
+    }
   </div>
 }
 

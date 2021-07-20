@@ -10,8 +10,9 @@ const Main = () => {
   return <div id="main">
 
     <div id="nav">
-      <h1>Scheluder</h1>
+      <h1>Scheduler</h1>
     </div>
+
     <div id="content">
       <Selector/>
       <Info/>

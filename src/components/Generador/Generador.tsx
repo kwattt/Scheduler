@@ -19,6 +19,8 @@ const Generador = () => {
   })
 
   const generador = () => {
+    setOpciones([])
+    setSelected(undefined)
 
     let posibles : any = []
     let iterations = 0;
@@ -47,7 +49,6 @@ const Generador = () => {
       if(iterations === config.maxIterations)
         break
     }
-
 
     let horario_count = 0
     for(let combination of allCombinations) {      
@@ -126,13 +127,11 @@ const Generador = () => {
         if(horario_count >= config.maxHorarios)
           break
       }
-
     }
 
     setOpciones(posibles)
     if(posibles.length > 0)
       setSelected(posibles[0])
-
   }
 
   return <div
