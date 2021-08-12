@@ -18,7 +18,7 @@ const MatSelector = () => {
 
   useEffect(() => {
     if (selectedR.current !== null && selectorR.current !== null){
-      let screenoffset = window.innerWidth > 600 ? 0.1 : 0.2
+      let screenoffset = (selectedR.current.offsetWidth*25)/selectorR.current.offsetWidth
       let offset = selectedR.current.offsetLeft-(selectorR.current.offsetWidth*screenoffset)
       selectorR.current.scrollTo(offset, 0)
     } 
