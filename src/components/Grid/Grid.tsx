@@ -5,14 +5,12 @@ import MatSelector from './MatSelector'
 import './Grid.css'
 import { DataContext } from "../../context/dataContext"
 import { useState } from "react"
-
 const Grid = () => {
   const {selected} = useContext(GeneracionContext)
   const {nrcInfo} = useContext(DataContext)
 
   const [showType, setShowType] = useState(false)
   
-
   var active_nrc : any = []
 
   var grid : any = {
@@ -33,7 +31,10 @@ const Grid = () => {
     if(typeof selected !== "undefined"){
       for(let key in selected){
         for(let val in selected[key]){
+
           grid[key][val] = selected[key][val]
+          
+
           if(!active_nrc.includes(selected[key][val]))
             active_nrc.push(selected[key][val])
         }
@@ -41,6 +42,21 @@ const Grid = () => {
     }
   }
   selectedToGrid()
+
+  const toLetter = (n: string) => {
+    if (window.innerWidth > 600) return n
+  
+    let ret: string = ""
+    if(n === "Horas") ret = 'H'
+    else if(n === "Lunes") ret = 'L'
+    else if(n === "Martes") ret = 'M'
+    else if(n === "Miercoles") ret = 'I'
+    else if(n === "Jueves") ret = 'J'
+    else if(n === "Viernes") ret = 'V'
+    else if(n === "Sabado") ret = 'S'
+    return ret
+  }
+  
 
   return <div id="grid-info">
 
@@ -54,7 +70,7 @@ const Grid = () => {
         key={'gridv'+v} 
         className="grid-day"
       >
-        {v}
+        {toLetter(v)}
         <div
           className="grid-day-content"  
         >

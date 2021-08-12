@@ -59,4 +59,4 @@ type configType = {
 }
 
 
-type diaSemana = 'Lunes' | 'Martes' | 'Miercoles' | 'Jueves' | 'Viernes' | 'Sabado';
+type diaSemana = 'Lunes' | 'Martes' | 'Miercoles' | 'Jueves' | 'Viernes' | 'Sabado' | 'L' | 'M' | 'I' | 'J' | 'V' | 'S';

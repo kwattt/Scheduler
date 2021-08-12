@@ -18,6 +18,7 @@
   grid-auto-rows: minmax(100px, auto);
   padding-inline: 5%;
   overflow-x: auto;
+  font-size: 0.8em;
 }
 
 @media (max-width: 600px){
